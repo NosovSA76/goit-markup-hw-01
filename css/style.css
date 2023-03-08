@@ -1,0 +1,182 @@
+body {
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      a {
+        color: currentColor;
+        text-decoration: none;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+      /* reset end */
+
+      /* header styles */
+      .header {
+        position: absolute;
+        top: 28px;
+        z-index: 100;
+        width: 100%;
+      }
+      .header-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+      }
+
+      /* hero section */
+      .hero {
+        position: relative;
+
+        max-width: 1280px;
+        height: 878px;
+        margin: 0 auto;
+      }
+      .hero-container {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hero-title {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-weight: 400;
+        font-size: 160px;
+        line-height: calc(195 / 160);
+
+        animation: move-vertical 1000ms ease-out 1000ms both;
+      }
+      .hero-title::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: 21px;
+
+        width: 58px;
+        height: 8px;
+        background-color: currentColor;
+      }
+      .hero-badge {
+        width: 102px;
+        margin-left: 210px;
+        font-size: 32px;
+        line-height: 39px;
+        animation: move-vertical 1000ms ease-out 1000ms both;
+      }
+      .hero-btn {
+        margin-right: 145px;
+        animation: move-vertical 1000ms ease-out 1000ms both;
+      }
+      [href="#btn-txt"] {
+        transform-origin: center;
+        animation: infinity-rotate 30s linear 4s infinite;
+      }
+      .hero-btn:hover [href="#btn-txt"],
+      .hero-btn:focus [href="#btn-txt"] {
+        animation-play-state: paused;
+      }
+
+      [href="#btn-arrow"] {
+        transform-origin: center;
+        transition: transform 500ms ease-out;
+      }
+      .hero-btn:hover [href="#btn-arrow"],
+      .hero-btn:focus [href="#btn-arrow"] {
+        transform: rotate(-122deg);
+      }
+      .hero-shape {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 100%;
+        height: 100%;
+
+        animation: scale-up-center 1000ms ease-out 1000ms both;
+      }
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      /* animations properties */
+      @keyframes scale-up-center {
+        0% {
+          clip-path: inset(150px 421px 92px 421px round 226px);
+        }
+        50% {
+          clip-path: inset(150px 345px 92px 345px round 226px);
+        }
+        100% {
+          clip-path: inset(0 round 0);
+        }
+      }
+
+      @keyframes move-vertical {
+        from {
+          transform: translateX(var(--shift-from-x, -50%))
+            translateY(var(--shift-from-y, 0));
+        }
+        to {
+          transform: translateX(var(--shift-to-x, -50%))
+            translateY(var(--shift-to-y, 0));
+          color: #fff;
+          fill: #fff;
+        }
+      }
+
+      @keyframes infinity-rotate {
+        from {
+          transform: rotate(-360deg);
+        }
+        to {
+          transform: rotate(0);
+        }
+      }
